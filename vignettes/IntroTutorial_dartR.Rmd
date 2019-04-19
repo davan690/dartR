@@ -20,9 +20,7 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-\pagebreak 
-
-
+\pagebreak
 
 #What is dartR?
  
@@ -63,11 +61,11 @@ install.packages("dartR")
 ## Manual installation via Github (with all dependencies)
 
 ```{r, eval=FALSE}
-install.packages("devtools")
+# install.packages("devtools")
 library(devtools)
 install.packages("BiocManager")
 BiocManager::install(c("SNPRelate", "qvalue"))
-install_github("green-striped-gecko/dartR")
+# install_github("green-striped-gecko/dartR")
 library(dartR)
 ```
 
@@ -77,7 +75,8 @@ library(dartR)
 To test if your installation was successful include the library by typing:
 
 ```{r}
- library(dartR)
+library(dartR)
+library(adegenet)
 ```
 
 If some packages have not been loaded, an error message will be given and you will need to install those package manually (see a detailed description of the process at the [Github repository](https://github.com/green-striped-gecko/dartR). A common problem is also that a package from bioiconductor is not installed (SNPRelate or qvalue). To fix this problem type:
