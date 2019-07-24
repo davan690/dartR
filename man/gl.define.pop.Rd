@@ -2,9 +2,9 @@
 % Please edit documentation in R/gl.define.pop.r
 \name{gl.define.pop}
 \alias{gl.define.pop}
-\title{Define a new population in a genelight \{adegenet\} object on the basis of specified individuals}
+\title{Define a new population in a genlight \{adegenet\} object on the basis of specified individuals}
 \usage{
-gl.define.pop(x, ind.list, new, v = 2)
+gl.define.pop(x, ind.list, new, verbose = 2)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing SNP genotypes [required]}
@@ -13,7 +13,7 @@ gl.define.pop(x, ind.list, new, v = 2)
 
 \item{new}{-- name of the new population}
 
-\item{v}{-- verbosity: 0, silent or fatal errors; 1, begin and end; 2, progress log ; 3, progress and results summary; 5, full report [default 2]}
+\item{verbose}{-- verbosity: 0, silent or fatal errors; 1, begin and end; 2, progress log ; 3, progress and results summary; 5, full report [default 2]}
 }
 \value{
 A genlight object with the redefined population structure
