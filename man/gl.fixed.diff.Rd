@@ -5,7 +5,7 @@
 \title{Generate a matrix of fixed differences from a genelight or genind object \{adegenet\}}
 \usage{
 gl.fixed.diff(x, tloc = 0, test = FALSE, delta = 0.02, reps = 1000,
-  rm.global.monomorphs = TRUE, pb = TRUE, v = 2)
+  mono.rm = TRUE, plot = FALSE, pb = TRUE, verbose = 2)
 }
 \arguments{
 \item{x}{-- name of the genlight object containing SNP genotypes [required]}
@@ -14,18 +14,20 @@ gl.fixed.diff(x, tloc = 0, test = FALSE, delta = 0.02, reps = 1000,
 
 \item{test}{-- if TRUE, calculate p values for the observed fixed differences [default FALSE]}
 
-\item{delta}{-- the threshold value for the minor allele frequency to regard the difference between two populations to be fixed [default 0.02]}
+\item{delta}{-- the threshold value for the minor allele frequency to regard the difference between two populations to be operationally fixed [default 0.02]}
 
 \item{reps}{-- number of replications to undertake in the simulation to estimate probability of false positives [default 1000]}
 
-\item{rm.global.monomorphs}{-- if TRUE, loci that are monomorphic across all individuals are removed before computation [default TRUE]}
+\item{mono.rm}{-- if TRUE, loci that are monomorphic across all individuals are removed before beginning computations [default TRUE]}
+
+\item{plot}{-- if TRUE, plot a heat map of the raw fixed differences [default FALSE]}
 
 \item{pb}{-- if TRUE, show a progress bar on time consuming loops [default FALSE]}
 
-\item{v}{-- verbosity: 0, silent or fatal errors; 1, begin and end; 2, progress log ; 3, progress and results summary; 5, full report [default 2]}
+\item{verbose}{-- verbosity: 0, silent or fatal errors; 1, begin and end; 2, progress log ; 3, progress and results summary; 5, full report [default 2]}
 }
 \value{
-A list containing the gl object x and the following square matricies
+A list containing the gl object and square matricies, as follows
         [[1]] $gl -- the input genlight object;,
         [[2]] $fd -- raw fixed differences;,
         [[3]] $pcfd -- percent fixed differences;,
@@ -43,8 +45,7 @@ A fixed difference at a locus occurs when two populations share no alleles. The 
 is that when sample sizes are finite, fixed differences will occur through sampling error, compounded when
 many loci are examined. Simulations suggest that sample sizes of n1=5 and n2=5 is adequate to reduce the
 probability of [experiment-wide] type 1 error to negligible levels [ploidy=2]. A warning is issued if comparison
-between two populations involves sample sizes less than 5, taking into account allele drop-out. The minimum sample 
-size for scoring fixed differences between two populations can be set with the parameter nlimit.
+between two populations involves sample sizes less than 5, taking into account allele drop-out.
 
 An absolute fixed difference is as defined above. However, one might wish to score fixed differences at some lower
 level of allele frequency difference, say where percent allele fequencies are 95,5 and 5,95 rather than 100:0 and 0:100.
@@ -53,7 +54,8 @@ This adjustment can be done with the tloc parameter. For example, tloc=0.05 mean
 }
 \examples{
 \donttest{
-fd <- gl.fixed.diff(testset.gl, tloc=0, test=TRUE, delta=0.02, reps=100, v=1 )
+fd <- gl.fixed.diff(testset.gl, tloc=0, plot=TRUE, verbose=2 )
+fd <- gl.fixed.diff(testset.gl, tloc=0, test=TRUE, delta=0.02, reps=100, verbose=1 )
 }
 }
 \seealso{
