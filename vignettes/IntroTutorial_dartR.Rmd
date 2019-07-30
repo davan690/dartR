@@ -45,7 +45,7 @@ A summary of the capabilities of ```dartR``` is as follows:
 This tutorial will not provide information how to use R. For that please search the web using the keywords "R tutorial introduction beginner" and you will find many excellent resources. 
 To be able to run the code in this tutorial you first need to download and install R via https://www.r-project.org/. Once installed we strongly recommend to download and install R-studio via https://www.rstudio.com/, which is becoming the defacto GUI for R. When using different packages you may get warning messages about packages built under different versions of R, these warnings can generally be ignored. If you are unfamiliar with using R there are a few important issues to be aware of. Commands and file names are case sensitive, when providing a path only use single forward slashes “/” (even if your operating system uses back slashes).
 
-#Using this Vignette 
+# Using this Vignette 
  
 To use this vignette interactively, you need to install and load the ```dartR``` package, and set the default directory using setwd().  To install the latest developmental version of the ```dartR``` package visit the github page for instructions (https://github.com/green-striped-gecko/dartR). Then we make the package available into the current project via ```library(dartR)```. A brief description on the installation procedure is given below. There are two ways to install ```dartR```, either via CRAN (prefered for the standard user) or via Github (latest, but untested version).
 
@@ -55,7 +55,7 @@ To use this vignette interactively, you need to install and load the ```dartR```
 The latest stable version of dartR can be installed from the CRAN repository. Simply type:
 
 ```{r, eval=FALSE}
-install.packages("dartR")
+# install.packages("dartR")
 ```
 
 ## Manual installation via Github (with all dependencies)
@@ -63,12 +63,14 @@ install.packages("dartR")
 ```{r, eval=FALSE}
 # install.packages("devtools")
 library(devtools)
-install.packages("BiocManager")
-BiocManager::install(c("SNPRelate", "qvalue"))
+```
+
+```{r}
+# install.packages("BiocManager")
+# BiocManager::install(c("SNPRelate", "qvalue"))
 # install_github("green-striped-gecko/dartR")
 library(dartR)
 ```
-
 
 ## Testing the installation
 
